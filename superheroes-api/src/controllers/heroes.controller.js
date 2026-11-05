@@ -8,7 +8,7 @@ async function list(req, res) {
 //await é uma palavra-chave usada dentro de funções assíncronas para pausar a execução da função até que uma promessa seja resolvida. Ela permite escrever código assíncrono de forma mais legível e sequencial, evitando o uso excessivo de callbacks ou encadeamento de promessas.
 // const { name, universe, power } = req.body; é uma técnica de desestruturação/deserialização em JavaScript que permite extrair valores de objetos ou arrays e atribuí-los a variáveis individuais. Nesse caso, está extraindo as propriedades name, universe e power do objeto req.body, que contém os dados enviados na requisição HTTP.
 async function create(req, res){
-    const { name, universe, power} = req.body;
+    const { name, universe, power} = req.body || {};
     if(!name || !universe || !power){
         return res.status(400).json({message: "Nome, universo e poder são obrigatórios"});
     }

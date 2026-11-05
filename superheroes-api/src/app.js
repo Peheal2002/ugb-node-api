@@ -7,7 +7,8 @@ const heroRoutes = require("./routes/heroes.routes.js");
 
 
 const app = express();
-app.use (express.json());
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 Hero.belongsToMany(Movie, { through: "HeroMovies" });
 Movie.belongsToMany(Hero, { through: "MoviesHero" });
