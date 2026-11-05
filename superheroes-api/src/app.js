@@ -1,11 +1,13 @@
 const express = require("express");
 const sequelize = require("./database/database.js");
-const heroRoutes = require("./routes/heroes.routes.js");
+
 const Hero = require("./models/Hero.js");
 const Movie = require("./models/Movie.js");
+const heroRoutes = require("./routes/heroes.routes.js");
+
 
 const app = express();
-
+app.use (express.json());
 
 Hero.belongsToMany(Movie, { through: "HeroMovies" });
 Movie.belongsToMany(Hero, { through: "MoviesHero" });
